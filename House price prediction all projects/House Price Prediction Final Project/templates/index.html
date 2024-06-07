@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Price Prediction</title>
+</head>
+<body>
+    <h1>House Price Prediction</h1>
+    <form id="predictionForm">
+        <label for="KitchenAbvGr">Kitchen Above Ground:</label>
+        <input type="number" id="KitchenAbvGr" name="KitchenAbvGr" required><br><br>
+        
+        <label for="TotRmsAbvGrd">Total Rooms Above Ground:</label>
+        <input type="number" id="TotRmsAbvGrd" name="TotRmsAbvGrd" required><br><br>
+        
+        <label for="PoolArea">Pool Area:</label>
+        <input type="number" id="PoolArea" name="PoolArea" required><br><br>
+        
+        <label for="LotArea">Lot Area:</label>
+        <input type="number" id="LotArea" name="LotArea" required><br><br>
+        
+        <label for="GrLivArea">Ground Living Area:</label>
+        <input type="number" id="GrLivArea" name="GrLivArea" required><br><br>
+        
+        <label for="OverallQual">Overall Quality:</label>
+        <input type="number" id="OverallQual" name="OverallQual" required><br><br>
+        
+        <label for="TotalBath">Total Bathrooms:</label>
+        <input type="number" id="TotalBath" name="TotalBath" required><br><br>
+        
+        <label for="BedroomAbvGr">Bedrooms Above Ground:</label>
+        <input type="number" id="BedroomAbvGr" name="BedroomAbvGr" required><br><br>
+        
+        <label for="GarageArea">Garage Area:</label>
+        <input type="number" id="GarageArea" name="GarageArea" required><br><br>
+        
+        <label for="TotalSF">Total Square Footage:</label>
+        <input type="number" id="TotalSF" name="TotalSF" required><br><br>
+        
+        <label for="YearBuilt">Year Built:</label>
+        <input type="number" id="YearBuilt" name="YearBuilt" required><br><br>
+        
+        <label for="YrSold">Year Sold:</label>
+        <input type="number" id="YrSold" name="YrSold" required><br><br>
+        
+        <button type="submit">Predict</button>
+    </form>
+    <div id="result"></div>
+
+    <script>
+        document.getElementById('predictionForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var formData = new FormData(this);
+            fetch('/predict', {
+                method: 'POST',
+                body: JSON.stringify(Object.fromEntries(formData.entries())),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('result').innerText = 'Predicted Price: $' + data.predicted_price;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+    </script>
+</body>
+</html>

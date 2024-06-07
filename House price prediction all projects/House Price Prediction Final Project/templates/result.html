@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Price Prediction Result</title>
+</head>
+<body>
+    <h1>House Price Prediction Result</h1>
+    <p>Predicted Price: $<span id="predictedPrice"></span></p>
+    <p><a href="/">Back to Prediction Form</a></p>
+
+    <script>
+        // Get the predicted price from the URL query parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const predictedPrice = urlParams.get('predicted_price');
+        document.getElementById('predictedPrice').textContent = predictedPrice;
+    </script>
+</body>
+</html>
