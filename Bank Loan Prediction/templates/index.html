@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Loan Prediction App</title>
+</head>
+<body>
+    <h1>Loan Prediction App</h1>
+    <form method="post">
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender">
+            <option value="0">Male (0)</option>
+            <option value="1">Female (1)</option>
+        </select><br>
+
+        <label for="married">Married:</label>
+        <select id="married" name="married">
+            <option value="0">No (0)</option>
+            <option value="1">Yes (1)</option>
+        </select><br>
+
+        <label for="dependents">Dependents:</label>
+        <select id="dependents" name="dependents">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3+</option>
+        </select><br>
+
+        <label for="education">Education:</label>
+        <select id="education" name="education">
+            <option value="0">Graduate (0)</option>
+            <option value="1">Not Graduate (1)</option>
+        </select><br>
+
+        <label for="self_employed">Self Employed:</label>
+        <select id="self_employed" name="self_employed">
+            <option value="0">No (0)</option>
+            <option value="1">Yes (1)</option>
+        </select><br>
+
+        <label for="applicant_income">Applicant Income:</label>
+        <input type="number" id="applicant_income" name="applicant_income" min="0" step="0.01" value="0"><br>
+
+        <label for="coapplicant_income">Coapplicant Income:</label>
+        <input type="number" id="coapplicant_income" name="coapplicant_income" min="0" step="0.01" value="0"><br>
+
+        <label for="loan_amount">Loan Amount:</label>
+        <input type="number" id="loan_amount" name="loan_amount" min="0" step="0.01" value="0"><br>
+
+        <label for="loan_amount_term">Loan Amount Term (in days):</label>
+        <input type="number" id="loan_amount_term" name="loan_amount_term" min="0" value="360"><br>
+
+        <label for="credit_history">Credit History:</label>
+        <select id="credit_history" name="credit_history">
+            <option value="0">No (0)</option>
+            <option value="1">Yes (1)</option>
+        </select><br>
+
+        <label for="property_area">Property Area:</label>
+        <select id="property_area" name="property_area">
+            <option value="0">Urban (0)</option>
+            <option value="1">Semiurban (1)</option>
+            <option value="2">Rural (2)</option>
+        </select><br><br>
+
+        <button type="submit">Predict</button>
+    </form>
+
+    <h2>{{ result }}</h2>
+
+    <h3>Explanation of Input Values:</h3>
+    <ul>
+        <li>Gender: Male (0), Female (1)</li>
+        <li>Married: No (0), Yes (1)</li>
+        <li>Dependents: 0, 1, 2, 3+</li>
+        <li>Education: Graduate (0), Not Graduate (1)</li>
+        <li>Self Employed: No (0), Yes (1)</li>
+        <li>Applicant Income: Numeric value (e.g., 5000)</li>
+        <li>Coapplicant Income: Numeric value (e.g., 2000)</li>
+        <li>Loan Amount: Numeric value (e.g., 150)</li>
+        <li>Loan Amount Term: Numeric value in days (e.g., 360)</li>
+        <li>Credit History: No (0), Yes (1)</li>
+        <li>Property Area: Urban (0), Semiurban (1), Rural (2)</li>
+    </ul>
+</body>
+</html>
